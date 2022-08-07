@@ -1,31 +1,54 @@
 import 'package:flutter/material.dart';
 
-class LoginMobile extends StatefulWidget {
-  const LoginMobile({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<LoginMobile> createState() => _LoginMobileState();
+  State<Login> createState() => _LoginState();
 }
 
-class _LoginMobileState extends State<LoginMobile> {
+class _LoginState extends State<Login> {
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30, top: 140, bottom: 60),
-      child: SingleChildScrollView(
-        child: SizedBox(
-          // width: 300,
+    return Row(
+        children: MediaQuery.of(context).size.width > 992
+            ? [
+                Expanded(
+                    child: Image.asset(
+                  'image.jpg',
+                  alignment: Alignment.center,
+                  height: double.infinity,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                )),
+                const Content()
+              ]
+            : [const Content()]);
+  }
+
+  void onChanged(bool? value) {
+    setState(() {
+      _isChecked = value!;
+    });
+  }
+}
+
+class Content extends StatelessWidget {
+  const Content({Key? key}) : super(key: key);
+
+  @override
+  Widget build(context) => Expanded(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 21),
+          padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text(
-                'Welcome back',
-              ),
               const SizedBox(height: 8),
               const Text(
-                'Login to your account',
+                'Login',
               ),
               const SizedBox(height: 35),
               const TextField(
@@ -66,7 +89,7 @@ class _LoginMobileState extends State<LoginMobile> {
                   ),
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 100),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
@@ -77,19 +100,14 @@ class _LoginMobileState extends State<LoginMobile> {
                   ),
                 ),
                 child: const Text(
-                  'Login now',
+                  'Entrar',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  void onChanged(bool? value) {
-    setState(() {
-      _isChecked = value!;
-    });
-  }
+      );
 }

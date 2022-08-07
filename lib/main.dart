@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/logindesktop.dart';
-import 'package:project/loginmobile.dart';
+import 'package:project/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,11 +38,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth < 992) {
-            return const LoginMobile();
-          } else {
-            return const LoginDesktop();
-          }
+          return const Login();
         },
       ),
     );
