@@ -12,6 +12,8 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: MediaQuery.of(context).size.width > 992
             ? [
                 Expanded(
@@ -24,7 +26,17 @@ class _LoginState extends State<Login> {
                 )),
                 const Content()
               ]
-            : [const Content()]);
+            : MediaQuery.of(context).size.width > 576
+                ? [
+                    Center(
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: const [Content()])))
+                  ]
+                : [const Content()]);
   }
 
   void onChanged(bool? value) {
@@ -41,7 +53,7 @@ class Content extends StatelessWidget {
   Widget build(context) => Expanded(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 21),
-          padding: const EdgeInsets.symmetric(horizontal: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
