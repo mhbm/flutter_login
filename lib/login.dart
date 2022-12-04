@@ -127,7 +127,7 @@ class _LoginState extends State<Login> {
 class Content extends StatelessWidget {
   const Content({Key? key}) : super(key: key);
 
-  @override
+  // @override
   // Widget build(context) => Container(
   //       width: 320,
   //       height: 480,
@@ -135,97 +135,82 @@ class Content extends StatelessWidget {
   //         mainAxisAlignment: MainAxisAlignment.center,
   //         crossAxisAlignment: CrossAxisAlignment.stretch,
   //         children: [
-  //           // const SizedBox(
-  //           //   height: 80,
-  //           //   width: 300,
-  //           //   child: (const Text(
-  //           //     'Logi22n',
-  //           //   )),
-  //           // ),
+  //           const SizedBox(
+  //             height: 80,
+  //             width: 300,
+  //             child: (Text(
+  //               'Login',
+  //             )),
+  //           ),
   //           // const SizedBox(height: 35),
-  //           // const TextField(
-  //           //   decoration: InputDecoration(
-  //           //     labelText: 'Email',
-  //           //     hintText: 'abc@example.com',
-  //           //     enabledBorder: OutlineInputBorder(
-  //           //       borderSide: BorderSide(
-  //           //         color: Colors.grey,
-  //           //         width: 1,
-  //           //       ),
-  //           //     ),
-  //           //     focusedBorder: OutlineInputBorder(
-  //           //       borderSide: BorderSide(
-  //           //         color: Colors.grey,
-  //           //         width: 1,
-  //           //       ),
-  //           //     ),
-  //           //   ),
-  //           // ),
-  //           // const SizedBox(height: 20),
-  //           // const TextField(
-  //           //   obscureText: true,
-  //           //   decoration: InputDecoration(
-  //           //     labelText: 'Password',
-  //           //     hintText: '********',
-  //           //     enabledBorder: OutlineInputBorder(
-  //           //       borderSide: BorderSide(
-  //           //         color: Colors.grey,
-  //           //         width: 1,
-  //           //       ),
-  //           //     ),
-  //           //     focusedBorder: OutlineInputBorder(
-  //           //       borderSide: BorderSide(
-  //           //         color: Colors.grey,
-  //           //         width: 1,
-  //           //       ),
-  //           //     ),
-  //           //   ),
-  //           // ),
-  //           // const SizedBox(height: 100),
-  //           // TextButton(
-  //           //   onPressed: () {},
-  //           //   style: TextButton.styleFrom(
-  //           //     backgroundColor: Colors.green,
-  //           //     padding: const EdgeInsets.symmetric(
-  //           //       vertical: 20,
-  //           //       horizontal: 10,
-  //           //     ),
-  //           //   ),
-  //           //   child: const Text(
-  //           //     'Entrar',
-  //           //     style: TextStyle(
-  //           //       color: Colors.white,
-  //           //     ),
-  //           //   ),
-  //           // ),
+  //           const TextField(
+  //             decoration: InputDecoration(
+  //               labelText: 'Email',
+  //               hintText: 'abc@example.com',
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderSide: BorderSide(
+  //                   color: Colors.grey,
+  //                   width: 1,
+  //                 ),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderSide: BorderSide(
+  //                   color: Colors.grey,
+  //                   width: 1,
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //           const SizedBox(height: 20),
+  //           const TextField(
+  //             obscureText: true,
+  //             decoration: InputDecoration(
+  //               labelText: 'Password',
+  //               hintText: '********',
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderSide: BorderSide(
+  //                   color: Colors.grey,
+  //                   width: 1,
+  //                 ),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderSide: BorderSide(
+  //                   color: Colors.grey,
+  //                   width: 1,
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //           const SizedBox(height: 100),
+  //           TextButton(
+  //             onPressed: () {},
+  //             style: TextButton.styleFrom(
+  //               backgroundColor: Colors.green,
+  //               padding: const EdgeInsets.symmetric(
+  //                 vertical: 20,
+  //                 horizontal: 10,
+  //               ),
+  //             ),
+  //             child: const Text(
+  //               'Entrar',
+  //               style: TextStyle(
+  //                 color: Colors.white,
+  //               ),
+  //             ),
+  //           ),
   //         ],
   //       ),
   //     );
+
+  @override
   Widget build(context) => Container(
       width: 320,
       height: 480,
       child: Stack(children: [
+        Positioned(left: 143, top: 102, child: Text('Login')),
         Positioned(
           left: 7,
-          top: 108,
-          child: SizedBox(
-            height: 32,
-            width: 306,
-            child: TextButton(
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                backgroundColor: Color.fromRGBO(255, 255, 255, 1),
-              ),
-              child: Text('Entrar',
-                  style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                  )),
-            ),
-          ),
-        ),
-        Positioned(
-          left: 7,
-          top: 52,
+          top: 239,
           child: SizedBox(
             height: 23,
             width: 306,
@@ -239,7 +224,7 @@ class Content extends StatelessWidget {
         ),
         Positioned(
           left: 7,
-          top: 174,
+          top: 284,
           child: SizedBox(
             height: 23,
             width: 306,
@@ -251,9 +236,79 @@ class Content extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(left: 27, top: 362, child: Text('Login'))
+        Positioned(
+          left: 7,
+          top: 416,
+          child: SizedBox(
+            height: 25,
+            width: 306,
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: Color.fromRGBO(170, 187, 204, 1),
+              ),
+              child: Text('Entrar',
+                  style: TextStyle(
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                  )),
+            ),
+          ),
+        )
       ]));
 }
+//   Widget build(context) => Container(
+//       width: 320,
+//       height: 480,
+//       child: Stack(children: [
+//         Positioned(
+//           left: 7,
+//           top: 108,
+//           child: SizedBox(
+//             height: 32,
+//             width: 306,
+//             child: TextButton(
+//               onPressed: () {},
+//               style: TextButton.styleFrom(
+//                 backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+//               ),
+//               child: Text('Entrar',
+//                   style: TextStyle(
+//                     color: Color.fromRGBO(255, 255, 255, 1),
+//                   )),
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 7,
+//           top: 52,
+//           child: SizedBox(
+//             height: 23,
+//             width: 306,
+//             child: TextField(
+//               decoration: InputDecoration(
+//                 labelText: 'Password',
+//                 border: OutlineInputBorder(),
+//               ),
+//             ),
+//           ),
+//         ),
+//         Positioned(
+//           left: 7,
+//           top: 174,
+//           child: SizedBox(
+//             height: 23,
+//             width: 306,
+//             child: TextField(
+//               decoration: InputDecoration(
+//                 labelText: 'Email',
+//                 border: OutlineInputBorder(),
+//               ),
+//             ),
+//           ),
+//         ),
+//         Positioned(left: 27, top: 362, child: Text('Login'))
+//       ]));
+// }
 //   Widget build(context) => Container(
 //       width: 320,
 //       height: 480,
