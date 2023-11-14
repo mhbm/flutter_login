@@ -1,46 +1,98 @@
 import 'package:flutter/material.dart';
-import 'package:project/login.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        body: ResponsiveElements(),
       ),
-      home: const LoginScreen(),
     );
   }
 }
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class ResponsiveElements extends StatelessWidget {
+  final List<Map<String, dynamic>> elementsData = [
+    {
+      "name": "Follow us @modimal",
+      "positionX": 108,
+      "positionY": 4343,
+      "width": 358,
+      "height": 95,
+    },
+    {
+      "name": "Follow us @modimal",
+      "positionX": 200,
+      "positionY": 700,
+      "width": 358,
+      "height": 95,
+    },
+    {
+      "name": "Follow us @modimal",
+      "positionX": 57,
+      "positionY": 109,
+      "width": 358,
+      "height": 95,
+    },
+    // Adicione mais elementos conforme necessário
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return const Login();
-        },
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        double screenWidth = constraints.maxWidth;
+
+        return Stack(
+          children: elementsData.map((data) {
+            double elementWidth = data['width'];
+            double elementHeight = data['height'];
+            double elementPositionX = data['positionX'];
+            double elementPositionY = data['positionY'];
+
+            double responsiveElementWidth = (elementWidth / 100) * screenWidth;
+            double responsiveElementHeight =
+                (elementHeight / 100) * screenWidth;
+            double responsiveElementPositionX =
+                (elementPositionX / 100) * screenWidth;
+            double responsiveElementPositionY =
+                (elementPositionY / 100) * screenWidth;
+
+            if (responsiveElementWidth > 0 && responsiveElementHeight > 0) {
+              return Positioned(
+                left: responsiveElementPositionX,
+                top: responsiveElementPositionY,
+                child: Container(
+                  width: responsiveElementWidth,
+                  height: responsiveElementHeight,
+                  color: getRandomColor(),
+                  child: Center(
+                    child: Text(
+                      data['name'],
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              );
+            } else {
+              return Container();
+            }
+          }).toList(),
+        );
+      },
+    );
+  }
+
+  Color getRandomColor() {
+    return Color.fromRGBO(
+      (List.generate(3, (index) => index * 100 + 50)..shuffle()).first,
+      (List.generate(3, (index) => index * 100 + 50)..shuffle()).first,
+      (List.generate(3, (index) => index * 100 + 50)..shuffle()).first,
+      1.0,
     );
   }
 }
